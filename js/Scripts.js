@@ -1,8 +1,8 @@
 var breweryRepository = (function($) {    //Start of IIFE
   var repository = [];
   var apiUrl = 'https://api.openbrewerydb.org/breweries';
-  var $modalContainer = document.querySelector('#modal-container');
-  var $breweryList = document.querySelector('ul');
+  var $modalContainer = $('#modal-container');
+  var $breweryList = $('ul');
 
   //function to add new brewery
   function add(brewery){
@@ -21,8 +21,9 @@ function getAll() {
 
 //function to add brewery object
 function addListItem(brewery) {
+  var brewerylist = $('.Brewery-list');
     var $listItem = $('<li></li>');
-    $pokemonList.append($listItem);
+    $breweryList.append($listItem);
     var $button = $('<button class="brewery-name">' + brewery.name + '</button>');
     $listItem.append($button);
     $button.on('click', function() {
@@ -30,62 +31,75 @@ function addListItem(brewery) {
     })
   }
 
-  //Function to load brewery list from API
   function loadList() {
-    return $.ajax(apiUrl, {dataType: 'json'}).then(function(responseJSON) {
-      return responseJSON;
-    }).then(function(json) {
-      json.results.forEach(function(item) {
+    return $.ajax(apiUrl, {dataType: 'json'}).then(function (item) { /* Replaced Fectch With Ajax*/
+
+    $.each(item.results, function(index, item){
         var brewery = {
           name: item.name,
-          detailsUrl: item.website_url
+          detailsUrl: item.url
         };
         add(brewery);
       });
-    }).catch(function(e) {
-      console.error(e);
-    })
+    }).catch(function (error) {
+      /*Load Functions Set In Order To Retrieve Data From Brewery API*/
+      console.error(error);
+    });
   }
-
   //function to load the brewery details
   function loadDetails(item) {
       var url = item.detailsUrl;
-      return $.ajax(url, {dataType: 'json'}).then(function(responseJSON) {
-        return responseJSON;
-      }).then(function(details) {
-        item.websiteUrl = details.website_url;
+      return $.ajax(url, {dataType: 'json'}).then(function(details) {
+        //item.websiteUrl = details.website_url;
         item.state = details.state;
         item.city = details.city;
-        item.types = Object.keys(details.types);
+        //item.types = Object.keys(details.types);
       }).catch(function(e) {
         console.error(e);
       })
     }
 
-    //Funtion to create reusable modal
-  function createReusableModal() {
 
-    var $modal = $('<div class="modal"></div>');
-    $modalContainer.append($modal);
-    var $modalElement1 = $('<div></div>');
-    $modal.append($modalElement1);
-    var $modalElement2 = $('<div class="brewery-info"></div>');
-    $modal.append($modalElement2);
+    /*Model Definition With Jquery Start*/
+  function showModal(item){
 
-    var $closeButtonElement = $('<button class="modal-close">Close</button>');
-    $modalElement1.append($closeButtonElement);
+      var modalContainer = $('#modal-container');
+        $(modalContainer).text('');
+        $(modalContainer).addClass('is-visible');
 
-    var $nameElement = $('<h1></h1>');
-    $modalElement2.append($nameElement);
-    var $stateElement = $('<p></p>');
-    $modalElement2.append($stateElement);
-    var $cityElement = $('<p></p>');
-    $modalElement2.append($cityElement);
-  }
+      var brewerymodal = $('<div>');
+        $(brewerymodal).addClass('modal');
+        $(modalContainer).append(brewerymodal);
 
+      var $closeModalBtn = $('<button class="modal-close">Close</button>');
+        $(pokemodal).append($closeModalBtn);
+        $closeModalBtn.click(hideModal);
+
+
+      var modalTitle = $('<h1>');
+        $(modalTitle).text(item.name);
+        $(modalTitle).addClass('modal-title');
+        $(pokemodal).append(modalTitle);
+
+    /*  var modalWebsite = $('<img>');
+        $(modalImg).addClass('poke-img');
+        $(modalImg).attr('src',item.imageUrl);
+        $(pokemodal).append(modalImg); */
+
+      var breweryState = $('<p>');
+        $(breweryState).text('State: ' + item.state);
+        $(breweryState).addClass('modal-para');
+        $(brewerymodal).append(State);
+
+        var breweryCity = $('<p>');
+          $(breweryCity).text('City: ' + item.city);
+          $(breweryCity).addClass('modal-para');
+          $(brewerymodal).append(City);
+    }
   //Function to hide modal
     function hideModal() {
       //var $modalContainer = document.querySelector('#modal-container');
+      var modalContainer = $('#modal-container');
       $modalContainer.removeClass('is-visible');
     }
 
@@ -124,7 +138,6 @@ function addListItem(brewery) {
       showDetails: showDetails,
       loadList: loadList,
       loadDetails: loadDetails,
-      createReusableModal: createReusableModal,
       showModal: showModal,
       hideModal: hideModal
     };
@@ -134,7 +147,7 @@ function addListItem(brewery) {
   //Creates list of Pokemon with Pokemon's name on the button
   breweryRepository.loadList().then(function() {
     //Create a reusable modal once
-    breweryRepository.createReusableModal();
+    breweryRepository.showModal();
     // Now the data is loaded!
     breweryRepository.getAll().forEach(function(brewery){
       breweryRepository.addListItem(brewery);
