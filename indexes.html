@@ -9,20 +9,30 @@
     <link rel="stylesheet" href="css/Styles.css" />
   </head>
 
-<body>
-  <header class="page-header">
-      <img src="img/craftbeerlogo.jpg" alt="Logo for Beer">
-    </header>
+  <body>
+    <header><h1 class="page-title">Brewery List</h1> </header>
+      <section class="brew-section">
 
-        <div class="wrapper">
-      <ul class="Brewery-list"></ul>
-    </div>
-    <div id="modal-container"></div>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-    <script src="js/promise-polyfill.js"></script>
-    <!-- <script src="js/fetch-polyfill.js"></script> --> 
-      <script src="js/Scripts.js"></script>
-  </body>
-</html>
+        <ul class="brewery-list">
+
+        </ul>
+      </section>
+  	  <div id="modal-container"></div>
+    <footer class="page-footer"><p>Find Me On</p><!--Scoial Media Icons-->
+      <div class="social-media">
+          <a href="#" target="_blank"><img src="img/githubsvg.svg"  alt="Git Hub Logo"></a>
+          <a href="#" target="_blank"><img src="img/twittersvg.svg"  alt="Twitter Logo"></a>
+          <a href="#" target="_blank"><img src="img/linkedInsvg.svg" alt="LinkedIn Logo"></a>
+      </div>
+        <br>
+      <script type="text/javascript">
+          document.write("Last Updated: " +document.lastModified);/*Display Date & Time Of Last Update of Site */
+      </script>
+
+    </footer>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.js"  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script> <!--Jquery CDN Link-->
+      <script  src="js/Scripts.js"> </script><!--javascript src link-->
+
+    </body>
+  </html>
