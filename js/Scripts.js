@@ -18,45 +18,45 @@ var repository = [ ];
   }
 
  function showDetails(item) {
-    breweryRepository.loadDetails(item).then(function () {
+    breweryRepository.loadList().then(function () {
     showModal(item);
     });
   }
-function add(name) { /*Add Additional Pokemon Attributes To Object Array*/
+function add(name) { /*Add Additional Brewery Attributes To Object Array*/
       repository.push(name);
 
   }
 
-  function catchAll() { /* Function Used To Return Pokedex Object Array*/
+  function catchAll() { /* Function Used To Return Brewery Object Array*/
       return repository;
   }
 
   function loadList() {
     return $.ajax(apiUrl, {dataType: 'json'}).then(function (response) { /* Replaced Fectch With Ajax*/
-     console.log(response);
-    $.each(response.results, function(index, item){
+    $.each(response, function(index, item){
         var brewery = {
           name: item.name,
-          detailsState: item.state,
-          detailsCity: item.city
-        };
+          state: item.state,
+          city: item.city,
+          website_url: item.website_url
+       };
         add(brewery);
       });
     }).catch(function (error) { /*Load Functions Set In Order To Retrieve Data From Pokemon API*/
       console.error(error);
     });
   }
-  function loadDetails(item) {
+  /*function loadDetails(item) {
     //var url = item.detailsUrl;
     return $.ajax(apiUrl).then(function (details) { /* Replaced Fectch With Ajax*/
         //item.imageUrl = details.sprites.front_default;
-        item.city = details.city;
+      /*  item.city = details.city;
         item.state = details.state;
       item.types = Object.keys(details.types);
     }).catch(function (error) {
           console.error(error);
     });
-  }
+  }*/
 
 /*Model Definition With Jquery Start*/
 function showModal(item){
@@ -93,6 +93,11 @@ function showModal(item){
       $(brewState).text('State: ' + item.state);
       $(brewState).addClass('modal-para');
       $(brewmodal).append(brewState);
+
+    var brewSite = $('<a href = website_url>');
+    $(brewSite).text(item.website_url);
+    $(brewSite).addClass('modal-para');
+    $(brewmodal).append(brewSite);
   }
 
 function hideModal() {
