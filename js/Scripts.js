@@ -4,21 +4,19 @@ var repository = [ ];
 
  var apiUrl = 'https://api.openbrewerydb.org/breweries';
  function addListItem(brewery){
-        var brewlist = $('.brewery-list');  /* JQuery List Item & Button Tags Together with CSS-Class Styles Created */
-        var listitem = $('<li>');
+        var brewlist = $('.list-group');  /* JQuery List Item & Button Tags Together with CSS-Class Styles Created */
+        var listitem = $('<li class="list-group-item"></li>');
         $(brewlist).append(listitem);
-        var btn = $('<button>');
-        $(listitem).append(btn);
+        var $btn = $('<button type="button" class="btn btn-outline-light" data-toggle="modal" data-target ="#BreweryModal"></button>');
         $(btn).text(brewery.name);
-        $(btn).addClass('brew-btn');
-        $(listitem).addClass('brewitem');
-        btn.on('click', function(event) { /*JQuery Click Button Event Listener Used To Display showDetails Function Properties */
+       $(listitem).append(btn);
+        $btn.on('click', function() { /*JQuery Click Button Event Listener Used To Display showDetails Function Properties */
         showDetails(brewery);
     });
   }
 
  function showDetails(item) {
-    breweryRepository.loadList().then(function () {
+    breweryRepository.loadList(item).then(function () {
     showModal(item);
     });
   }
@@ -59,7 +57,7 @@ function add(name) { /*Add Additional Brewery Attributes To Object Array*/
   }*/
 
 /*Model Definition With Jquery Start*/
-function showModal(item){
+/*function showModal(item){
 
     var modalContainer = $('#modal-container');
       $(modalContainer).text('');
@@ -84,7 +82,7 @@ function showModal(item){
       $(modalImg).attr('src',item.imageUrl);
       $(pokemodal).append(modalImg);*/
 
-    var brewCity = $('<p>');
+    /*var brewCity = $('<p>');
       $(brewCity).text('City: ' + item.city);
       $(brewCity).addClass('modal-para');
       $(brewmodal).append(brewCity);
@@ -98,9 +96,17 @@ function showModal(item){
     $(brewSite).text(item.website_url);
     $(brewSite).addClass('modal-para');
     $(brewmodal).append(brewSite);
-  }
+  }*/
 
-function hideModal() {
+  function showModal(item){
+      $("#breweryName").text(item.name);
+      $("#brewCity").text('City: ' + item.city);
+      $("#brewState").text('State: ' + item.state);
+      $("#brewSite").attr(item.website_url);
+    }
+
+
+/*function hideModal() {
     var modalContainer = $('#modal-container');
     $(modalContainer).removeClass('is-visible');
   }
@@ -121,7 +127,7 @@ $(window).keydown(function(event) {
     if (target === modalContainer) {
       hideModal();
     }
-  });
+  });*/
 /*Model Definition With Jquery End*/
 return {  /*Return All Previous Function In Order To Be Available Outside Of IIFE */
       add: add,
@@ -130,7 +136,7 @@ return {  /*Return All Previous Function In Order To Be Available Outside Of IIF
       loadList: loadList,
       //loadDetails: loadDetails,
       showModal: showModal,
-      hideModal: hideModal
+      //hideModal: hideModal
   };
 })();
 

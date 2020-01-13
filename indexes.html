@@ -5,20 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>JQueryApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" href="css/Styles.css" />
   </head>
 
   <body>
-    <header><h1 class="page-title">Breweries in USA</h1> </header>
-      <section class="brew-section">
+  <!--  <header class="container-fluid sticky-top"><h1 class="page-title ">Brewery List</h1> </header> -->
+<!--<nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #b2854b;">
+			<a class="navbar-brand" href="index.html"><h1>Brewery</h1></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<form class="form-inline">
+					<input class="form-control mr-sm-2" id="brewery-search" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+    </nav>-->
+      <!--navbar-collapse (hamburger menu)-->
+    <section class="brew-section">
+      <h6 class="sticky-top page-title">Brewery Selection</h6>
+    <ul class="list-group">
 
-        <ul class="brewery-list">
+    </ul>
+</section>
+<!--Bootstrap Model Section Start -->
+<div class="modal fade" id="BreweryModal" tabindex="-1" role="dialog" aria-labelledby="breweryName" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="breweryName">Brewery Name</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    </button>
+  </div>
+  <div class="modal-body">
+    <p id="brewCity"></p>
+    <p id="brewState"></p>
+    <a href ="website_url" id="brewSite"></a>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 
-        </ul>
-      </section>
-  	  <div id="modal-container"></div>
-    <footer class="page-footer"><p>Find Me On</p><!--Scoial Media Icons-->
+  </div>
+</div>
+</div>
+</div>
+
+      	 <!--Scoial Media Icons-->
+    <footer class="page-footer"><p>Find Me On</p>
       <div class="social-media">
           <a href="#" target="_blank"><img src="img/githubsvg.svg"  alt="Git Hub Logo"></a>
           <a href="#" target="_blank"><img src="img/twittersvg.svg"  alt="Twitter Logo"></a>
@@ -30,9 +66,18 @@
       </script>
 
     </footer>
-
-      <script src="https://code.jquery.com/jquery-3.4.1.js"  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script> <!--Jquery CDN Link-->
-      <script  src="js/Scripts.js"> </script><!--javascript src link-->
+<!-- Bootstrap Javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous">
+    </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous">
+  </script>
+      <script  src="js/Scripts.js"> </script>
 
     </body>
   </html>
