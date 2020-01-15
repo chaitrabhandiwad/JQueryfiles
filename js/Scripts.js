@@ -7,10 +7,10 @@ var repository = [ ];
         var brewlist = $('.list-group');  /* JQuery List Item & Button Tags Together with CSS-Class Styles Created */
         var listitem = $('<li class="list-group-item"></li>');
         $(brewlist).append(listitem);
-        var $btn = $('<button type="button" class="btn btn-outline-light" data-toggle="modal" data-target ="#BreweryModal"></button>');
+        var btn = $('<button class="btn btn-dark" data-toggle="modal" data-target="#BreweryModal"></button>');
         $(btn).text(brewery.name);
        $(listitem).append(btn);
-        $btn.on('click', function() { /*JQuery Click Button Event Listener Used To Display showDetails Function Properties */
+        btn.on('click', function() { /*JQuery Click Button Event Listener Used To Display showDetails Function Properties */
         showDetails(brewery);
     });
   }
@@ -135,7 +135,7 @@ return {  /*Return All Previous Function In Order To Be Available Outside Of IIF
       addListItem: addListItem,
       loadList: loadList,
       //loadDetails: loadDetails,
-      showModal: showModal,
+      //showModal: showModal,
       //hideModal: hideModal
   };
 })();

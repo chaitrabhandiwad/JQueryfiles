@@ -2,7 +2,7 @@ body{
   background-image: url(../img/Beer.jpg);
   background-size: auto;
   background-position: center center;
-    background-color: #fcffdb;
+    background-color: #C19A6B;
     color:black;
     font-weight: bold;
 }
@@ -31,8 +31,7 @@ body{
 .brew-section{
     border:2px black outset;
     border-radius:5px;
-    /*background-image: linear-gradient( 70deg, navy ,white);*/
-    color:black;
+  /*  background-image: linear-gradient( 100deg);*/
     width:30%;
     height:550px;
     box-shadow:2px 2px;
@@ -99,13 +98,12 @@ body{
 #brewCity , #brewState{
   font-size: 18px;
   text-align: left;
-  color:gold;
+  color:brown;
     margin-bottom:5%;
 }
 
 
-/*Model Style Attributes End*/
-/*header{
+/*Model Style Attributes End*/header{
   background-image:url(../img/Header.jpg);
       display: -webkit-box;
     display: -ms-flexbox;
@@ -122,3 +120,7 @@ body{
 
 
 }*/
+
+.modal-footer{
+  color: #C19A6B;
+}

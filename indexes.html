@@ -4,40 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>JQueryApp</title>
+    <title>BootstrapApp</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" href="css/Styles.css" />
   </head>
 
   <body>
-  <!--  <header class="container-fluid sticky-top"><h1 class="page-title ">Brewery List</h1> </header> -->
-<!--<nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #b2854b;">
-			<a class="navbar-brand" href="index.html"><h1>Brewery</h1></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" id="brewery-search" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-				</form>
-			</div>
-    </nav>-->
-      <!--navbar-collapse (hamburger menu)-->
-    <section class="brew-section">
-      <h6 class="sticky-top page-title">Brewery Selection</h6>
-    <ul class="list-group">
+    <header class="container-fluid sticky-top"><h1 class="page-title ">Brewery List</h1> </header>
+ <section class="brew-section">
+ <h6 class="sticky-top page-title">Brewery Selection</h6>
+   <ul class="list-group"></ul>
+ </section>
 
-    </ul>
-</section>
-<!--Bootstrap Model Section Start -->
+  <!--Bootstrap Model Section Start -->
 <div class="modal fade" id="BreweryModal" tabindex="-1" role="dialog" aria-labelledby="breweryName" aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
   <div class="modal-header">
     <h5 class="modal-title" id="breweryName">Brewery Name</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
@@ -48,13 +34,13 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 
+     </div>
+   </div>
   </div>
-</div>
-</div>
-</div>
+ </div>
 
       	 <!--Scoial Media Icons-->
-    <footer class="page-footer"><p>Find Me On</p>
+    <footer class="container page-footer"><p>Find Me On</p>
       <div class="social-media">
           <a href="#" target="_blank"><img src="img/githubsvg.svg"  alt="Git Hub Logo"></a>
           <a href="#" target="_blank"><img src="img/twittersvg.svg"  alt="Twitter Logo"></a>
