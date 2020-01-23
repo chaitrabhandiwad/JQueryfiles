@@ -2,8 +2,8 @@ body{
   background-image: url(../img/Beer.jpg);
   background-size: auto;
   background-position: center center;
-    background-color: #C19A6B;
-    color:black;
+  background-color: #C19A6B;
+  color: inherit;
     font-weight: bold;
 }
 /*Brewery Array Style Attributes Start */
@@ -15,11 +15,6 @@ body{
     text-transform:capitalize;
     font-variant:small-caps;
     box-shadow:2px 2px;
-}
-.btn:hover{
-    background-color:#C19A6B;
-    color:navy;
-
 }
 
 .list-group-item{
@@ -41,9 +36,8 @@ body{
     margin-bottom: 10%;
  }
  .page-title{
-     font-family:"Pokemon Solid";
+     font-family: Helvetica, sans-serif;
      text-align: center;
-     color:navy;
 }
 .page-footer{
 	clear: both;
@@ -51,7 +45,6 @@ body{
 	flex-direction: column; /* Footer Flex Box & Center Aligned For Items */
 	text-align: center;
     margin-top:15%;
-    margin-bottom:1px;
 	margin-left: auto;
 	margin-right: auto;
 	background-image:url(../img/Header.jpg);
@@ -72,23 +65,12 @@ body{
 
     }
 }
-@media all and (min-width:500px)and(max-width:750px){
-    .btn{
-        font-size: 14px;
 
-    }
-}
-@media all and(min-width:750px) and (max-width:1800px){
-    .btn{
-        font-size:28px;
-    }
-}
 /*Brewery Array Style Attributes End */
 
 /*Model Style Attributes Start*/
 #breweryName{
   margin-top: 10px;
-  color:navy;
   font-weight:bold;
   font-size:38px;
   text-transform:capitalize;
@@ -98,29 +80,22 @@ body{
 #brewCity , #brewState{
   font-size: 18px;
   text-align: left;
-  color:brown;
     margin-bottom:5%;
 }
 
 
-/*Model Style Attributes End*/header{
+/*Model Style Attributes End*/
+header{
   background-image:url(../img/Header.jpg);
-      display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+        display: flex;
             justify-content: center;
             background-size: auto;
-    width: 100%;
-    padding: 2px;
+    width: 80%;
+    height: auto;
+    padding: 6px;
     margin: auto;
     border-radius: 5px;
     box-shadow:2px 2px grey;
 
 
-}*/
-
-.modal-footer{
-  color: #C19A6B;
 }
